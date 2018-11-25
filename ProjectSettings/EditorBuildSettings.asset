@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 19d758f7e18d24cc08bdb11243a619d4
+  - enabled: 1
+    path: Assets/Scenes/TeamRankings.unity
+    guid: 67fbdf81542d2426a8d257ef7cb09388
+  - enabled: 1
+    path: Assets/Scenes/Scanner.unity
+    guid: 1bf3a0040897c4f548130632e7da2293
+  - enabled: 1
+    path: Assets/Scenes/Phase1Card.unity
+    guid: 7e19f22beb5804c3883fba926b7e19e6
   m_configObjects: {}
