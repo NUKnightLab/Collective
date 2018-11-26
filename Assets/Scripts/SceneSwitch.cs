@@ -7,6 +7,7 @@ public class SceneSwitch : MonoBehaviour {
 
     public void LoadByIndex(int sceneIndex)
     {
+        Debug.Log("Hello");
         SceneManager.LoadScene(sceneIndex);
     }
 }
