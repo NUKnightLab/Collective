@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phase1Card.unity
     guid: 7e19f22beb5804c3883fba926b7e19e6
+  - enabled: 1
+    path: Assets/Scenes/Marker1.unity
+    guid: cb907d21a1f054b19ac5c1a041214104
+  - enabled: 1
+    path: Assets/Scenes/LandingPage.unity
+    guid: 74a25c1990b6d41cc800f740dde4c20e
+  - enabled: 1
+    path: Assets/Scenes/Phase1bCard.unity
+    guid: 1b93aed5a2cb74d4ab86a2dcaba87a77
+  - enabled: 1
+    path: Assets/Scenes/Phase1cCard.unity
+    guid: f2a65699dc2f748969e0572137014b0c
+  - enabled: 1
+    path: Assets/Scenes/Phase1dCard.unity
+    guid: 9b859b359045749f386fa9860ee4dfe1
   m_configObjects: {}
