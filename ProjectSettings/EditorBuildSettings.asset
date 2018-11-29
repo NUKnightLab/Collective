@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phase1dCard.unity
     guid: 9b859b359045749f386fa9860ee4dfe1
+  - enabled: 1
+    path: Assets/Scenes/FiskHall.unity
+    guid: 8f557a87133b449a5b5567178d735286
+  - enabled: 1
+    path: Assets/Scenes/HarvestChoice.unity
+    guid: 11cb0bc0e671441a4bc6259716fb31ed
+  - enabled: 1
+    path: Assets/Scenes/ResourcesEarned.unity
+    guid: 8ebec8224ba1e4c048fcc57418db59de
   m_configObjects: {}
