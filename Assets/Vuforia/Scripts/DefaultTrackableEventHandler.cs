@@ -8,6 +8,7 @@ Confidential and Proprietary - Protected under copyright and other laws.
 
 using UnityEngine;
 using Vuforia;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
@@ -83,7 +84,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
-        var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        /*var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
@@ -97,7 +98,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         // Enable canvas':
         foreach (var component in canvasComponents)
-            component.enabled = true;
+            component.enabled = true; */
+        SceneManager.LoadScene("TeamRankings");
     }
 
 
@@ -120,5 +122,5 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             component.enabled = false;
     }
 
-    #endregion // PROTECTED_METHODS
+    #endregion // PROTECTED_METHODS 
 }
