@@ -99,7 +99,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true; */
-        SceneManager.LoadScene("TeamRankings");
+        SceneManager.LoadScene("FiskHall");
     }
 
 
