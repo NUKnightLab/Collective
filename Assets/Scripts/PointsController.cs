@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class PointsController : MonoBehaviour {
 
-    private float resourcePoints;
+    static float totalResourcePoints;
 
-    private float ghgPoints;
+    static float totalGhgPoints;
+
+    public static float resourcePoints;
+
+    static float ghgPoints;
 
     public void changePoints(Slider slider)
     {
         resourcePoints = slider.value;
         ghgPoints = 30 - slider.value;
+        totalResourcePoints += resourcePoints;
+        totalGhgPoints += ghgPoints;
         Debug.Log(resourcePoints);
         Debug.Log(ghgPoints);
     }
