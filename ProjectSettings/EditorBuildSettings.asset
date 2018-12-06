@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: a23ed99b0a6df4fa6b8371309d8cd36f
+  - enabled: 1
+    path: Assets/Scenes/GHG Graph.unity
+    guid: c450cbc680483400aa75c36c62123d6c
+  - enabled: 1
+    path: Assets/Scenes/MoneyGraph.unity
+    guid: 9114487d71f3b4af682afa0ad5f90184
   m_configObjects: {}

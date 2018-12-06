@@ -29,6 +29,7 @@ public class GraphSample : MonoBehaviour {
         chart.DataSource.AddPointToCategory("Money3", 9, 1072);
 
         chart.DataSource.EndBatch();
+        Debug.Log("hello");
 
     }
 	
