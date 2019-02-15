@@ -12,6 +12,8 @@ public class DisplayValue : MonoBehaviour
     public Texture moderate;
     public Texture tooHigh;
     private int myIntValue;
+
+
     public int MyIntValue
     {
         get { return myIntValue; }
@@ -50,29 +52,40 @@ public class DisplayValue : MonoBehaviour
         //Update the text shown in the text component by setting the `text` variable
         //textComponent.text = "You earned: " + resource + " resource  points";
 
+        // decision == 0: Decision to save money
+        // decision == 1: Decision to invest money into something
 
 		if(resource<25)
 		{
-			textComponent.text = "You took too little";
-			imageComponent.texture=tooLow;
-		}
+			imageComponent.texture = tooLow;
+
+            // Both outcomes are neutral
+            textComponent.text = "NEUTRAL ending";
+        }
+
 		else if(resource<=75)
 		{
-            textComponent.text = "Way to go Goldilocks!";
             imageComponent.texture = moderate;
 
+            if (decision == 0)
+            {
+                textComponent.text = "NEUTRAL ending";
+            }
+            else if (decision == 1)
+            {
+                textComponent.text = "GOOD ending";
+            }
+
         }
+
         else
 		{
-            textComponent.text = "You took too much";
             imageComponent.texture = tooHigh;
 
+            // Both outcomes are bad
+            textComponent.text = "BAD ending";
         }
 
-        if (decision == 2)
-        {
-            textComponent.text = "You make a good choice";
-        }
 
     }
 }
