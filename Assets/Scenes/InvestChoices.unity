@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -246,9 +246,9 @@ RectTransform:
   - {fileID: 53585314}
   - {fileID: 518763747}
   - {fileID: 1424640981}
-  - {fileID: 1090396073}
   - {fileID: 1391246983}
   - {fileID: 1262904375}
+  - {fileID: 1090396073}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -732,6 +732,7 @@ GameObject:
   - component: {fileID: 1090396076}
   - component: {fileID: 1090396075}
   - component: {fileID: 1090396074}
+  - component: {fileID: 1090396078}
   m_Layer: 5
   m_Name: InvestOption
   m_TagString: Untagged
@@ -752,7 +753,7 @@ RectTransform:
   m_Children:
   - {fileID: 1298137237}
   m_Father: {fileID: 20512696}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -817,7 +818,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1090396078}
+        m_MethodName: makeDecision
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -861,6 +873,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090396072}
   m_CullTransparentMesh: 0
+--- !u!114 &1090396078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090396072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ca08dee54ff40d99c8a4460cf255df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262904374
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +898,7 @@ GameObject:
   - component: {fileID: 1262904378}
   - component: {fileID: 1262904377}
   - component: {fileID: 1262904376}
+  - component: {fileID: 1262904380}
   m_Layer: 5
   m_Name: HealOption
   m_TagString: Untagged
@@ -894,7 +919,7 @@ RectTransform:
   m_Children:
   - {fileID: 1905581770}
   m_Father: {fileID: 20512696}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -959,7 +984,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1262904380}
+        m_MethodName: makeDecision
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1003,6 +1039,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262904374}
   m_CullTransparentMesh: 0
+--- !u!114 &1262904380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262904374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ca08dee54ff40d99c8a4460cf255df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1298137236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1145,7 @@ GameObject:
   - component: {fileID: 1391246986}
   - component: {fileID: 1391246985}
   - component: {fileID: 1391246984}
+  - component: {fileID: 1391246988}
   m_Layer: 5
   m_Name: SaveOption
   m_TagString: Untagged
@@ -1117,7 +1166,7 @@ RectTransform:
   m_Children:
   - {fileID: 482967590}
   m_Father: {fileID: 20512696}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1182,7 +1231,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 16
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1391246988}
+        m_MethodName: makeDecision
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1226,6 +1286,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391246982}
   m_CullTransparentMesh: 0
+--- !u!114 &1391246988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391246982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ca08dee54ff40d99c8a4460cf255df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1424640980
 GameObject:
   m_ObjectHideFlags: 0

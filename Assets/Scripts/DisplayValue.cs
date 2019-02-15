@@ -20,8 +20,8 @@ public class DisplayValue : MonoBehaviour
             if (myIntValue != value)
             {
                 //Here we're only updating the text shown on screen when the value is changed
-                myIntValue = value;
-                UpdateText(myIntValue);
+                //myIntValue = value;
+                //UpdateText(myFloatValue, myIntValue);
             }
         }
     }
@@ -42,13 +42,15 @@ public class DisplayValue : MonoBehaviour
             this.enabled = false;
             return;
         }
-        UpdateText(PointsController.resourcePoints);
+        UpdateText(PointsController.resourcePoints, PointsController.decision);
     }
 
-    void UpdateText(float resource)
+    void UpdateText(float resource, int decision)
     {
         //Update the text shown in the text component by setting the `text` variable
         //textComponent.text = "You earned: " + resource + " resource  points";
+
+
 		if(resource<25)
 		{
 			textComponent.text = "You took too little";
@@ -67,7 +69,10 @@ public class DisplayValue : MonoBehaviour
 
         }
 
-
+        if (decision == 2)
+        {
+            textComponent.text = "You make a good choice";
+        }
 
     }
 }

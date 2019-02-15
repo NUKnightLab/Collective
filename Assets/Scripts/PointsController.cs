@@ -13,6 +13,8 @@ public class PointsController : MonoBehaviour {
 
     static float ghgPoints = 0;
 
+    public static int decision;
+
     public void changePoints(Slider slider)
     {
         Transform parent = transform.parent.gameObject.transform;
@@ -47,6 +49,11 @@ public class PointsController : MonoBehaviour {
         totalGhgPoints += ghgPoints;
         Debug.Log(resourcePoints);
         Debug.Log(totalGhgPoints);
+    }
+
+    public void makeDecision (int pick)
+    {
+        decision = pick;
     }
 
 
