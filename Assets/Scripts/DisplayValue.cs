@@ -77,7 +77,6 @@ public class DisplayValue : MonoBehaviour
             }
 
         }
-
         else
 		{
             imageComponent.texture = tooHigh;
