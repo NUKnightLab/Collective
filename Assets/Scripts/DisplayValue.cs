@@ -8,9 +8,9 @@ public class DisplayValue : MonoBehaviour
 
     public Text textComponent;
 	public RawImage imageComponent;
-    public Texture tooLow;
-    public Texture moderate;
-    public Texture tooHigh;
+    //public Texture tooLow;
+    //public Texture moderate;
+    //public Texture tooHigh;
     private int myIntValue;
 
 
@@ -57,32 +57,31 @@ public class DisplayValue : MonoBehaviour
 
 		if(resource<25)
 		{
-			imageComponent.texture = tooLow;
 
             // Both outcomes are neutral
-            textComponent.text = "NEUTRAL ending";
+            textComponent.text = "You harvested fish and chose to save the money for a rainy day.";
         }
 
 		else if(resource<=75)
 		{
-            imageComponent.texture = moderate;
 
             if (decision == 0)
             {
-                textComponent.text = "NEUTRAL ending";
+                textComponent.text = "You harvested fish and chose to save the money for a rainy day.";
             }
             else if (decision == 1)
             {
-                textComponent.text = "GOOD ending";
+                textComponent.text = "You've used your resources to invest in wind turbines, which improves" +
+                	" Northwestern's energy by 20%. \n \nYou wonder, 'where else can I get resources?'";
             }
 
         }
         else
 		{
-            imageComponent.texture = tooHigh;
-
             // Both outcomes are bad
-            textComponent.text = "BAD ending";
+            textComponent.text = "In your rush to gain resources and invest in the environment," +
+            	" you forgot aboput your health. \n \nYou're in no condition to continue and are " +
+            	"locked away to recover.";
         }
 
 
