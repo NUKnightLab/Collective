@@ -80,7 +80,7 @@ public class DisplayValue : MonoBehaviour
 		{
             // Both outcomes are bad
             textComponent.text = "In your rush to gain resources and invest in the environment," +
-            	" you forgot aboput your health. \n \nYou're in no condition to continue and are " +
+            	" you forgot about your health. \n \nYou're in no condition to continue and are " +
             	"locked away to recover.";
         }
 
