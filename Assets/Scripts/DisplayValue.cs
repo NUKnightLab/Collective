@@ -44,17 +44,17 @@ public class DisplayValue : MonoBehaviour
             this.enabled = false;
             return;
         }
-        UpdateText(PointsController.resourcePoints, PointsController.decision);
+        UpdateText(PointsController.totalResourcePoints, PointsController.totalGhgPoints);
     }
 
-    void UpdateText(float resource, int decision)
+    void UpdateText(float resource, float ghg)
     {
         //Update the text shown in the text component by setting the `text` variable
         //textComponent.text = "You earned: " + resource + " resource  points";
 
         // decision == 0: Decision to save money
         // decision == 1: Decision to invest money into something
-
+        /*
 		if(resource<25)
 		{
 
@@ -82,7 +82,15 @@ public class DisplayValue : MonoBehaviour
             textComponent.text = "In your rush to gain resources and invest in the environment," +
             	" you forgot about your health. \n \nYou're in no condition to continue and are " +
             	"locked away to recover.";
+        }*/
+
+        textComponent.text = "";
+        if (ghg>=1000)
+        {
+            textComponent.text = "The earth is dead and you should feel bad \n";
         }
+
+        textComponent.text += "You earned $" + resource;
 
 
     }
