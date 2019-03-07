@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Invest.unity
     guid: 508074ab58048a04889329528282c729
+  - enabled: 1
+    path: Assets/Scenes/Harvest.unity
+    guid: 66aaeaa203a93ad4bb039f62f6cfaf47
   m_configObjects: {}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.SceneManagement;
 
 public class ResourceTrackerBehavior : MonoBehaviour, ITrackableEventHandler
 {
@@ -43,6 +44,8 @@ public class ResourceTrackerBehavior : MonoBehaviour, ITrackableEventHandler
 
     void OnTrackerFound()
     {
+        SceneManager.LoadScene("Harvest");
+        /*
         foreach (var item in resource_Vumark.GetActiveBehaviours())
         {
             Transform parent = transform.parent.gameObject.transform;
@@ -61,7 +64,7 @@ public class ResourceTrackerBehavior : MonoBehaviour, ITrackableEventHandler
             deadFish.SetActive(true);
             //Debug.Log(transform.GetChild((int)0).gameObject.activeInHierarchy);
             //GUI.SetActive(false);
-        }
+        }*/
     }
 
     void OnTrackerLost()
