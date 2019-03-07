@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class DisplayValue : MonoBehaviour
 {
 
     public Text textComponent;
-	public RawImage imageComponent;
     //public Texture tooLow;
     //public Texture moderate;
     //public Texture tooHigh;
@@ -30,68 +31,86 @@ public class DisplayValue : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("resource points are" + PointsController.resourcePoints);
-        //If text hasn't been assigned, disable ourselves
         if (textComponent == null)
         {
             Debug.Log("You must assign a text component!");
             this.enabled = false;
             return;
         }
-        if (imageComponent == null)
+        switch (PointsController.lastAction)
         {
-            Debug.Log("You must assign an image component!");
-            this.enabled = false;
-            return;
+            case "Harvest":
+                ShowHarvest(PointsController.lastHarvest, PointsController.totalResourcePoints);
+                break;
+            case "Invest":
+                ShowInvest(PointsController.lastInvest);
+                break;
+            case "MicroActions":
+                ShowGHG(PointsController.totalGhgPoints / PointsController.maxGhg);
+                break;
         }
-        UpdateText(PointsController.totalResourcePoints, PointsController.totalGhgPoints);
     }
 
-    void UpdateText(float resource, float ghg)
+    public void ShowHarvest(float new_money, float total)
     {
-        //Update the text shown in the text component by setting the `text` variable
-        //textComponent.text = "You earned: " + resource + " resource  points";
+        textComponent.text = "You just harvested $" + new_money + " worth of fish. You now have $" + total + " in total. \n\n";
+        textComponent.text += "Now you must decide how much you want to invest in making Northwestern more sustainable.";
 
-        // decision == 0: Decision to save money
-        // decision == 1: Decision to invest money into something
-        /*
-		if(resource<25)
-		{
+    }
 
-            // Both outcomes are neutral
-            textComponent.text = "You harvested fish and chose to save the money for a rainy day.";
+    public void ShowInvest(float new_money)
+    {
+        textComponent.text = "You just invested $" + new_money + " into making NU more sustainable.\n\n";
+        textComponent.text += "Investment So Far:\n$" + PointsController.totalInvestPoints + "/$" + PointsController.maxInvest+"\n";
+        textComponent.text += "The more you invest, the better for the environment long-term.\n\n";
+        textComponent.text += "You can add to this by taking action directly.";
+    }
+
+    public void ShowGHG(float ghg)
+    {
+        if (ghg < .25)
+        {
+            textComponent.text = "The world is looking great. We're actually improving the environment! \n";
+            textComponent.text += "Head to the next location.";
         }
-
-		else if(resource<=75)
-		{
-
-            if (decision == 0)
-            {
-                textComponent.text = "You harvested fish and chose to save the money for a rainy day.";
-            }
-            else if (decision == 1)
-            {
-                textComponent.text = "You've used your resources to invest in wind turbines, which improves" +
-                	" Northwestern's energy by 20%. \n \nYou wonder, 'where else can I get resources?'";
-            }
-
+        else if (ghg < .5)
+        {
+            textComponent.text = "The world is roughly unchanged.\n";
+            textComponent.text += "Head to the next location.";
+        }
+        else if (ghg < .75)
+        {
+            textComponent.text = "The world is starting to see the effects of climat change.";
+            textComponent.text += "Proceed with caution.";
+        }
+        else if (ghg < 1)
+        {
+            textComponent.text = "Effects of your choices are accelerating and rapidly getting worse as fish are dying.\n";
+            textComponent.text += "Proceed with caution.";
         }
         else
-		{
-            // Both outcomes are bad
-            textComponent.text = "In your rush to gain resources and invest in the environment," +
-            	" you forgot about your health. \n \nYou're in no condition to continue and are " +
-            	"locked away to recover.";
-        }*/
-
-        textComponent.text = "";
-        if (ghg>=1000)
         {
-            textComponent.text = "The earth is dead and you should feel bad \n";
+            textComponent.text = "Snowstorm!!! The situation is so bad due to GHG emissions that a Polar Vortex has frozen life as a consequence.";
         }
+    }
 
-        textComponent.text += "You earned $" + resource;
-
-
+    public void LeaveResults()
+    {
+        switch (PointsController.lastAction)
+        {
+            case "Harvest":
+                SceneManager.LoadScene("Invest");
+                break;
+            case "Invest":
+                SceneManager.LoadScene("MicroActions");
+                break;
+            case "MicroActions":
+                if (PointsController.totalGhgPoints == PointsController.maxGhg)
+                {
+                    SceneManager.LoadScene("GameOver");
+                }
+                SceneManager.LoadScene("Map");
+                break;
+        }
     }
 }
