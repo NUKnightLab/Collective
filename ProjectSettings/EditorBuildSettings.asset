@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Harvest.unity
     guid: 66aaeaa203a93ad4bb039f62f6cfaf47
+  - enabled: 1
+    path: Assets/Scenes/AlreadyVisited.unity
+    guid: 3ddc742d48e241043aac0a263ddd767e
   m_configObjects: {}

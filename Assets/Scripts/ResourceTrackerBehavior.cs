@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class ResourceTrackerBehavior : MonoBehaviour, ITrackableEventHandler
 {
     GameObject GUI;
-   
 
     TrackableBehaviour resource_TrackableBehaviour;
 
@@ -44,7 +43,22 @@ public class ResourceTrackerBehavior : MonoBehaviour, ITrackableEventHandler
 
     void OnTrackerFound()
     {
-        SceneManager.LoadScene("Harvest");
+        PointsController.lastAction = "Scan";
+
+        foreach (var item in resource_Vumark.GetActiveBehaviours())
+        {
+            PointsController.currentLocation = item.VuMarkTarget.InstanceId.StringValue;
+        }
+        if (PointsController.visited.Contains(PointsController.currentLocation))
+        {
+            SceneManager.LoadScene("AlreadyVisited");
+        }
+        else
+        {
+            PointsController.visited.Add(PointsController.currentLocation);
+            SceneManager.LoadScene("ResultScreen");
+
+        }
         /*
         foreach (var item in resource_Vumark.GetActiveBehaviours())
         {

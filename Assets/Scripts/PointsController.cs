@@ -29,6 +29,8 @@ public class PointsController : MonoBehaviour
     public static int spotsHit = 0;
 
     public static string lastAction;
+    public static string currentLocation;
+    public static List<string> visited = new List<string>();
 
 
     public void changeHarvest(Slider slider)
