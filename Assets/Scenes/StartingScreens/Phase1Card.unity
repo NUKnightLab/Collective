@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &603688997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -814,10 +814,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Your objective is to make as much money as possible in three days while
-    not adding too much to greenhouse gases (GHG). \n\nGHG has been increasing significantly
-    in the past 50 years, but you have the chance to help stop that from happening
-    by making different decisions from now on. \n\nDo you accept this mission?"
+  m_Text: "Greenhouse Gases (GHG) have been increasing significantly in the past 50
+    years. You have the chance to help stop that from continuing. \n\nYour objective
+    is to make as much money as possible in this game while minimizing the GHG levels.\n\nClick
+    the button below to start your mission."
 --- !u!222 &1298783062
 CanvasRenderer:
   m_ObjectHideFlags: 0
