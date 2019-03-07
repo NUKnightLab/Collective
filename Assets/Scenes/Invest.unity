@@ -891,9 +891,7 @@ MonoBehaviour:
 
     $0
 
-    Investment So Far:
-
-    $30/$1000'
+'
 --- !u!222 &1288716356
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1300,7 +1298,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6942d031bfb805248ac1d77482e9e679, type: 2}
+  - {fileID: 2100000, guid: 9165e8f834b5c6a45993b039539c4112, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
