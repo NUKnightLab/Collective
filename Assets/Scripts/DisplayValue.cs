@@ -61,7 +61,7 @@ public class DisplayValue : MonoBehaviour
     public void ShowInvest(float new_money)
     {
         textComponent.text = "You just invested $" + new_money + " into making NU more sustainable.\n\n";
-        textComponent.text += "Investment So Far:\n$" + PointsController.totalInvestPoints + "/$" + PointsController.maxInvest+"\n";
+        textComponent.text += "Investment So Far: $" + PointsController.totalInvestPoints;
         textComponent.text += "The more you invest, the better for the environment long-term.\n\n";
         textComponent.text += "You can add to this by taking action directly.";
     }

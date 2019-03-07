@@ -21,8 +21,8 @@ public class PointsController : MonoBehaviour
     public static float lastInvest = 0;
     public static float lastMicro = 10;
 
-    public static float maxGhg = 100;
-    public static float maxInvest = 1000;
+    public static float maxGhg = 101;
+    public static float maxInvest = 300;
 
     public static int microEffect =0;
 
