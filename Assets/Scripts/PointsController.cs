@@ -76,7 +76,7 @@ public class PointsController : MonoBehaviour
         lastAction = "Harvest";
         lastHarvest = resourcePoints;
         resourcePoints = 0;
-        SceneManager.LoadScene("HarvestInfo");
+        SceneManager.LoadScene("ResultScreen");
     }
 
     public void changeInvest(Slider slider)
@@ -97,10 +97,14 @@ public class PointsController : MonoBehaviour
 
         SceneManager.LoadScene("ResultScreen");
     }
-
+    public static void ChangeMicroAction(int impact)
+    {
+        microEffect = impact;
+    }
     public void MicroAction()
     {
         totalGhgPoints += microEffect;
+        Debug.Log(totalGhgPoints);
         lastAction = "MicroActions";
         spotsHit++;
         lastMicro = microEffect;

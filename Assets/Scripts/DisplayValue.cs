@@ -98,7 +98,6 @@ public class DisplayValue : MonoBehaviour
         {
             textComponent.text = "Snowstorm!!! The situation is so bad due to GHG emissions that a Polar Vortex has frozen life as a consequence.";
         }
-        textComponent.text += "\n GHG is " + PointsController.totalGhgPoints;
     }
 
     public void ShowLocation(string location, int spotsHit)

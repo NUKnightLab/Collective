@@ -9,6 +9,7 @@ public class MicroActionButton : MonoBehaviour
     public void Select(int impact)
     {
         selection.transform.position = button.transform.position;
+        PointsController.ChangeMicroAction(impact);
         PointsController.microEffect = impact;
     }
 
