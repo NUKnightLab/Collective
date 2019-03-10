@@ -10,33 +10,24 @@ public class DisplayValue : MonoBehaviour
     public Texture DeeringBackground;
     public Texture LagoonBackground;
     public Texture SegalBackground;
+    public Texture MapBackground;
+    public RawImage imageComponent;
     public Text textComponent;
-    private int myIntValue;
-
-
-    public int MyIntValue
-    {
-        get { return myIntValue; }
-        set
-        {
-            if (myIntValue != value)
-            {
-                //Here we're only updating the text shown on screen when the value is changed
-                //myIntValue = value;
-                //UpdateText(myFloatValue, myIntValue);
-            }
-        }
-    }
 
     void Awake()
     {
-        Debug.Log(PointsController.totalGhgPoints);
-        Debug.Log("HELP ME");
-        if (textComponent == null)
+        switch (PointsController.currentLocation)
         {
-            Debug.Log("You must assign a text component!");
-            this.enabled = false;
-            return;
+            case "a":
+                imageComponent.texture = DeeringBackground;
+                break;
+            case "b":
+                imageComponent.texture = LagoonBackground;
+
+                break;
+            case "c":
+                imageComponent.texture = SegalBackground;
+                break;
         }
         switch (PointsController.lastAction)
         {
@@ -50,7 +41,10 @@ public class DisplayValue : MonoBehaviour
                 ShowGHG(PointsController.totalGhgPoints / PointsController.maxGhg);
                 break;
             case "Scan":
-                ShowLocation(PointsController.currentLocation, PointsController.spotsHit);
+                ShowLocation(PointsController.currentLocation, PointsController.spotsHit, PointsController.totalGhgPoints);
+                break;
+            case "EndGame":
+                ShowEnd(PointsController.totalGhgPoints);
                 break;
 
         }
@@ -88,7 +82,7 @@ public class DisplayValue : MonoBehaviour
             textComponent.text = "The world is starting to see the effects of climate change. \n";
             textComponent.text += "Proceed with caution.";
         }
-        else if (ghg < 1)
+        else if (ghg <= 1)
         {
             textComponent.text = "Effects of your choices are accelerating and rapidly getting worse as fish are dying.\n";
             textComponent.text += "Proceed with caution.";
@@ -99,10 +93,8 @@ public class DisplayValue : MonoBehaviour
         }
     }
 
-    public void ShowLocation(string location, int spotsHit)
+    public void ShowLocation(string location, int spotsHit, float ghg)
     {
-        // Access the raw image component of the canvas
-        RawImage backgroundImage = GetComponent<RawImage>();
 
         string prettyName ="";
         switch (location)
@@ -120,23 +112,47 @@ public class DisplayValue : MonoBehaviour
         switch (spotsHit)
         {
             case 0:
-                textComponent.text = "You can harvest dish at " + prettyName + " for money.\n";
+                textComponent.text = "You can harvest fish at " + prettyName + " for money.\n";
                 textComponent.text += "You can keep accumulating this money, or you can invest it in new technology to help save the world.\n";
                 textComponent.text += "Keep in mind that the more you harvest, the more you add to GHG in the atmosphere.";
-                backgroundImage.texture = DeeringBackground;
 
                 break;
             case 1:
                 textComponent.text = "You've got this. You rush to " + prettyName + " to keep going.\n";
                 textComponent.text += "Just a reminder! You've done this before but harvesting will result in higher GHG.";
-                backgroundImage.texture = LagoonBackground;
 
                 break;
             case 2:
-                textComponent.text = "One final location! This is your last chance to make good choices.";
-                backgroundImage.texture = SegalBackground;
-
+                if (ghg < .25)
+                {
+                    textComponent.text = "The environment is looking great! Keep building on what you've done at the last location: " + prettyName;
+                }
+                else if (ghg < .5)
+                {
+                    textComponent.text = "The environment is doing well and you've increased your wealth! You want to keep going, so you head to the last location: " + prettyName;
+                }
+                else
+                {
+                    textComponent.text = "The environment is sufering - but you have one more chance to redeem yourself at the last location: "+prettyName;
+                }
                 break;
+        }
+    }
+
+    public void ShowEnd(float ghg)
+    {
+        imageComponent.texture = MapBackground;
+        if (ghg < .25)
+        {
+            textComponent.text = "Great job!\n\n You kept the environment clean while keeping GHG levels low, and you invested you money well.";
+        }
+        else if (ghg < .75)
+        {
+            textComponent.text = "You've reached the end!\n\n You made enough money to stay afloat and kept GHG to moderate levels! But, it will take a lot more than a few smart choices to imporve the environment.";
+        }
+        else
+        {
+            textComponent.text = "GAME OVER\n\n The world became too toxic. Your wealth cannot save you now.";
         }
     }
 
@@ -151,14 +167,23 @@ public class DisplayValue : MonoBehaviour
                 SceneManager.LoadScene("MicroActions");
                 break;
             case "MicroActions":
-                if (PointsController.totalGhgPoints == PointsController.maxGhg)
+                if ((PointsController.totalGhgPoints >= PointsController.maxGhg)
+                    | (PointsController.spotsHit == 3))
                 {
-                    SceneManager.LoadScene("GameOver");
+                    PointsController.ChangeLastAction("EndGame");
+                    SceneManager.LoadScene("EndGame");
                 }
-                SceneManager.LoadScene("Map");
+                else
+                {
+                    SceneManager.LoadScene("Map");
+                }
                 break;
             case "Scan":
                 SceneManager.LoadScene("Harvest");
+                break;
+            case "EndGame":
+                PointsController.ResetScores();
+                SceneManager.LoadScene("LandingPage");
                 break;
         }
     }

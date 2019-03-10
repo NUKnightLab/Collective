@@ -19,7 +19,7 @@ public class PointsController : MonoBehaviour
 
     public static float lastHarvest = 0;
     public static float lastInvest = 0;
-    public static float lastMicro = 10;
+    public static float lastMicro = 0;
 
     public static float maxGhg = 101;
     public static float maxInvest = 300;
@@ -61,7 +61,7 @@ public class PointsController : MonoBehaviour
         }
 
         //In with the new!
-        resourcePoints = Mathf.Round(slider.value * Mathf.Cos(totalGhgPoints / maxGhg * Mathf.PI / 2));
+        resourcePoints = Mathf.Round(slider.value * Mathf.Cos(Mathf.Max(totalGhgPoints,0) / maxGhg * Mathf.PI / 2));
         ghgPoints = Mathf.Round(Mathf.Pow(slider.value, 2 - totalInvestPoints / maxInvest) / slider.maxValue);
 
         textComponent.text = "Effect If Harvested:\n";
@@ -101,6 +101,10 @@ public class PointsController : MonoBehaviour
     {
         microEffect = impact;
     }
+    public static void ChangeLastAction(string action)
+    {
+        lastAction = action;
+    }
     public void MicroAction()
     {
         totalGhgPoints += microEffect;
@@ -111,4 +115,13 @@ public class PointsController : MonoBehaviour
         microEffect = 10;
         SceneManager.LoadScene("ResultScreen");
     }
+    public static void ResetScores()
+    {
+        totalResourcePoints = 0;
+        totalGhgPoints = 0;
+        totalInvestPoints = 0;
+
+        spotsHit = 0;
+        visited = new List<string>();
+}
 }
