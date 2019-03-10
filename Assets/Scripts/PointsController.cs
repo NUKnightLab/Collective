@@ -9,6 +9,11 @@ public class PointsController : MonoBehaviour
 {
     public Text textComponent;
 
+    // The points in the top right corner
+    public Text displayGhg;
+    public Text displayWealth;
+    public Text displayInvest;
+
     public static float totalResourcePoints = 0;
     public static float totalGhgPoints = 0;
     public static float totalInvestPoints = 0;
@@ -32,6 +37,12 @@ public class PointsController : MonoBehaviour
     public static string currentLocation;
     public static List<string> visited = new List<string>();
 
+    private void Start()
+    {
+        displayGhg.text = totalGhgPoints.ToString();
+        displayWealth.text = totalResourcePoints.ToString();
+        displayInvest.text = totalInvestPoints.ToString();
+    }
 
     public void changeHarvest(Slider slider)
     {
