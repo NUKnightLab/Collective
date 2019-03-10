@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -208,7 +208,7 @@ RectTransform:
   m_GameObject: {fileID: 1027524268}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.05, y: 1.76, z: 1}
   m_Children:
   - {fileID: 1698120541}
   m_Father: {fileID: 1991139550}
@@ -216,7 +216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -471}
+  m_AnchoredPosition: {x: 0, y: -393}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1027524270
@@ -251,9 +251,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.13333334, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.13333334, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027524268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -333,8 +333,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ac818fb2e72476c97454168b979c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeeringBackground: {fileID: 0}
+  LagoonBackground: {fileID: 0}
+  SegalBackground: {fileID: 0}
   textComponent: {fileID: 1989829767}
-  imageComponent: {fileID: 0}
 --- !u!1 &1572679832
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 540, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989829767
@@ -657,8 +659,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ac818fb2e72476c97454168b979c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeeringBackground: {fileID: 0}
+  LagoonBackground: {fileID: 0}
+  SegalBackground: {fileID: 0}
   textComponent: {fileID: 1989829767}
-  imageComponent: {fileID: 0}
 --- !u!1 &1991139544
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +677,7 @@ GameObject:
   - component: {fileID: 1991139547}
   - component: {fileID: 1991139546}
   - component: {fileID: 1991139545}
+  - component: {fileID: 1991139551}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -700,7 +705,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: c1c03c556e7704018b3950f54809a4b2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 93029ff8d00954f6a8a8471cdc3ffe5f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -796,3 +801,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1991139551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991139544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ac818fb2e72476c97454168b979c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeeringBackground: {fileID: 2800000, guid: c201e0a19eea1408b937f3eb315f7ff0, type: 3}
+  LagoonBackground: {fileID: 2800000, guid: 297ebe3b2a7374161bb45426d5737707, type: 3}
+  SegalBackground: {fileID: 2800000, guid: b103dd6d789c54485a6681e257170263, type: 3}
+  textComponent: {fileID: 1989829767}

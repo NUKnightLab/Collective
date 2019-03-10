@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class DisplayValue : MonoBehaviour
 {
-
+    public Texture DeeringBackground;
+    public Texture LagoonBackground;
+    public Texture SegalBackground;
     public Text textComponent;
-    //public Texture tooLow;
-    //public Texture moderate;
-    //public Texture tooHigh;
     private int myIntValue;
 
 
@@ -102,6 +101,9 @@ public class DisplayValue : MonoBehaviour
 
     public void ShowLocation(string location, int spotsHit)
     {
+        // Access the raw image component of the canvas
+        RawImage backgroundImage = GetComponent<RawImage>();
+
         string prettyName ="";
         switch (location)
         {
@@ -121,13 +123,19 @@ public class DisplayValue : MonoBehaviour
                 textComponent.text = "You can harvest dish at " + prettyName + " for money.\n";
                 textComponent.text += "You can keep accumulating this money, or you can invest it in new technology to help save the world.\n";
                 textComponent.text += "Keep in mind that the more you harvest, the more you add to GHG in the atmosphere.";
+                backgroundImage.texture = DeeringBackground;
+
                 break;
             case 1:
                 textComponent.text = "You've got this. You rush to " + prettyName + " to keep going.\n";
                 textComponent.text += "Just a reminder! You've done this before but harvesting will result in higher GHG.";
+                backgroundImage.texture = LagoonBackground;
+
                 break;
             case 2:
                 textComponent.text = "One final location! This is your last chance to make good choices.";
+                backgroundImage.texture = SegalBackground;
+
                 break;
         }
     }
