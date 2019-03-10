@@ -14,6 +14,11 @@ public class PointsController : MonoBehaviour
     public Text displayWealth;
     public Text displayInvest;
 
+    // The three buttons (fish markers)
+    public GameObject DeeringButton;
+    public GameObject LagoonButton;
+    public GameObject SegalButton;
+
     public static float totalResourcePoints = 0;
     public static float totalGhgPoints = 0;
     public static float totalInvestPoints = 0;
@@ -29,10 +34,10 @@ public class PointsController : MonoBehaviour
     public static float maxGhg = 101;
     public static float maxInvest = 300;
 
-    public static int microEffect =0;
+    public static int microEffect = 0;
 
     public static int spotsHit = 0;
-
+    
     public static string lastAction;
     public static string currentLocation;
     public static List<string> visited = new List<string>();
@@ -42,6 +47,30 @@ public class PointsController : MonoBehaviour
         displayGhg.text = totalGhgPoints.ToString();
         displayWealth.text = totalResourcePoints.ToString();
         displayInvest.text = totalInvestPoints.ToString();
+
+        Debug.Log("Visited locations: \n");
+        for (int i = 0; i < visited.Count; i++)
+        {
+            Debug.Log(visited[i]);
+            switch (visited[i])
+            {
+                case "a":
+                    Debug.Log("DISABLE DEERING LIBRARY BUTTON!");
+                    DeeringButton.SetActive(false);
+
+                    break;
+                case "b":
+                    Debug.Log("DISABLE LAGOON BUTTON");
+                    LagoonButton.SetActive(false);
+
+                    break;
+                case "c":
+                    Debug.Log("DISABLE SEGAL BUTTON");
+                    SegalButton.SetActive(false);
+                    break;
+            }
+
+        }
     }
 
     public void changeHarvest(Slider slider)

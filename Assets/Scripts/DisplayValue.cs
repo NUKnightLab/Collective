@@ -14,6 +14,10 @@ public class DisplayValue : MonoBehaviour
     public RawImage imageComponent;
     public Text textComponent;
 
+    public RawImage LagoonMarker;
+    public RawImage DeeringMarker;
+    public RawImage SegalMarker;
+
     void Awake()
     {
         switch (PointsController.currentLocation)
@@ -100,12 +104,15 @@ public class DisplayValue : MonoBehaviour
         switch (location)
         {
             case "a":
+                PointsController.visited.Add("a");
                 prettyName = "Deering Library";
                 break;
             case "b":
+                PointsController.visited.Add("b");
                 prettyName = "the Lagoon";
                 break;
             case "c":
+                PointsController.visited.Add("c");
                 prettyName = "Segal Visitor Center";
                 break;
         }
