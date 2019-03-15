@@ -4,8 +4,8 @@ using UnityEngine;
 using Vuforia;
 using UnityEngine.SceneManagement;
 
-public class CollectiveTrackerBehavior : MonoBehaviour, ITrackableEventHandler
-{
+public class CollectiveTrackerBehavior : MonoBehaviour
+{/*
     string markerID;
 
     TrackableBehaviour collective_TrackableBehaviour;
@@ -99,5 +99,5 @@ public class CollectiveTrackerBehavior : MonoBehaviour, ITrackableEventHandler
             int targetObj = System.Convert.ToInt32(item.VuMarkTarget.InstanceId.NumericValue);
             transform.GetChild(targetObj - 1).gameObject.SetActive(false);
         }
-    }
+    }*/
 }
