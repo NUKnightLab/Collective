@@ -45,10 +45,10 @@ public class DisplayValue : MonoBehaviour
                 ShowGHG(PointsController.totalGhgPoints / PointsController.maxGhg);
                 break;
             case "Scan":
-                ShowLocation(PointsController.currentLocation, PointsController.spotsHit, PointsController.totalGhgPoints);
+                ShowLocation(PointsController.currentLocation, PointsController.spotsHit, PointsController.totalGhgPoints / PointsController.maxGhg);
                 break;
             case "EndGame":
-                ShowEnd(PointsController.totalGhgPoints);
+                ShowEnd(PointsController.totalGhgPoints / PointsController.maxGhg);
                 break;
 
         }

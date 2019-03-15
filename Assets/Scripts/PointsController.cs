@@ -116,6 +116,7 @@ public class PointsController : MonoBehaviour
         lastAction = "Harvest";
         lastHarvest = resourcePoints;
         resourcePoints = 0;
+        ghgPoints = 0;
         SceneManager.LoadScene("ResultScreen");
     }
 
@@ -152,7 +153,7 @@ public class PointsController : MonoBehaviour
         lastAction = "MicroActions";
         spotsHit++;
         lastMicro = microEffect;
-        microEffect = 10;
+        microEffect = 0;
         SceneManager.LoadScene("ResultScreen");
     }
     public static void ResetScores()
@@ -160,6 +161,11 @@ public class PointsController : MonoBehaviour
         totalResourcePoints = 0;
         totalGhgPoints = 0;
         totalInvestPoints = 0;
+
+        microEffect = 0;
+        investPoints = 0;
+        resourcePoints = 0;
+
 
         spotsHit = 0;
         visited = new List<string>();
